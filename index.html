@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Image Gallery</h1>
+  <p>Click any image to open it in the lightbox viewer.</p>
+</header>
+
+<!-- ============================================= -->
+<!-- FILTER BUTTONS: plain HTML, each one calls     -->
+<!-- filterImages('CategoryName') on click          -->
+<!-- ============================================= -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterImages('All', this)">All</button>
+  <button class="filter-btn" onclick="filterImages('Nature', this)">Nature</button>
+  <button class="filter-btn" onclick="filterImages('Urban', this)">Urban</button>
+  <button class="filter-btn" onclick="filterImages('Food', this)">Food</button>
+</div>
+
+<!-- ============================================= -->
+<!-- GALLERY: every card is written directly here   -->
+<!-- onclick calls a JS function and passes the     -->
+<!-- index number (0,1,2...) of that photo          -->
+<!-- ============================================= -->
+<div class="gallery">
+
+  <div class="card" data-category="Nature" onclick="openLightbox(0)">
+    <img src="https://picsum.photos/seed/mountain1/800/600" alt="Misty Peaks">
+    <div class="overlay">
+      <div class="tag">Nature</div>
+      <div class="title">Misty Peaks</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Urban" onclick="openLightbox(1)">
+    <img src="https://picsum.photos/seed/city1/800/600" alt="Night Skyline">
+    <div class="overlay">
+      <div class="tag">Urban</div>
+      <div class="title">Night Skyline</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Nature" onclick="openLightbox(2)">
+    <img src="https://picsum.photos/seed/forest1/800/600" alt="Deep Woods">
+    <div class="overlay">
+      <div class="tag">Nature</div>
+      <div class="title">Deep Woods</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Food" onclick="openLightbox(3)">
+    <img src="https://picsum.photos/seed/food1/800/600" alt="Plated Dish">
+    <div class="overlay">
+      <div class="tag">Food</div>
+      <div class="title">Plated Dish</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Urban" onclick="openLightbox(4)">
+    <img src="https://picsum.photos/seed/street1/800/600" alt="Rainy Alley">
+    <div class="overlay">
+      <div class="tag">Urban</div>
+      <div class="title">Rainy Alley</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Food" onclick="openLightbox(5)">
+    <img src="https://picsum.photos/seed/coffee1/800/600" alt="Morning Brew">
+    <div class="overlay">
+      <div class="tag">Food</div>
+      <div class="title">Morning Brew</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Nature" onclick="openLightbox(6)">
+    <img src="https://picsum.photos/seed/desert1/800/600" alt="Golden Dunes">
+    <div class="overlay">
+      <div class="tag">Nature</div>
+      <div class="title">Golden Dunes</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Urban" onclick="openLightbox(7)">
+    <img src="https://picsum.photos/seed/bridge1/800/600" alt="Steel Bridge">
+    <div class="overlay">
+      <div class="tag">Urban</div>
+      <div class="title">Steel Bridge</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Food" onclick="openLightbox(8)">
+    <img src="https://picsum.photos/seed/dessert1/800/600" alt="Sweet Tart">
+    <div class="overlay">
+      <div class="tag">Food</div>
+      <div class="title">Sweet Tart</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Nature" onclick="openLightbox(9)">
+    <img src="https://picsum.photos/seed/lake1/800/600" alt="Still Water">
+    <div class="overlay">
+      <div class="tag">Nature</div>
+      <div class="title">Still Water</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Urban" onclick="openLightbox(10)">
+    <img src="https://picsum.photos/seed/market1/800/600" alt="Busy Market">
+    <div class="overlay">
+      <div class="tag">Urban</div>
+      <div class="title">Busy Market</div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Food" onclick="openLightbox(11)">
+    <img src="https://picsum.photos/seed/salad1/800/600" alt="Fresh Greens">
+    <div class="overlay">
+      <div class="tag">Food</div>
+      <div class="title">Fresh Greens</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================= -->
+<!-- LIGHTBOX: hidden popup, shown via JS later     -->
+<!-- ============================================= -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lb-close" onclick="closeLightbox()">&times;</button>
+    <button class="lb-btn lb-prev" onclick="prevImage()">&#10094;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-btn lb-next" onclick="nextImage()">&#10095;</button>
+    <div class="caption" id="lbCaption"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
